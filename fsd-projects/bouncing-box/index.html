@@ -19,7 +19,10 @@
 			/* Change me! */
 			left: 0px;
 		}
-
+body {
+  background-image: url("img_tree.gif"), url("paper.gif");
+  background-color: #cccccc;
+}
 		.board {
 			height: 100vh;
 		}
@@ -44,7 +47,6 @@
 			var box = jQuery('.box');	// reference to the HTML .box element
 			var board = jQuery('.board');	// reference to the HTML .board element
 			var boardWidth = board.width();	// the maximum X-Coordinate of the screen
-
 			// Every 50 milliseconds, call the update Function (see below)
 			setInterval(update, 50);
 
@@ -52,7 +54,7 @@
 			box.on('click', handleBoxClick);
 
 			// moves the Box to a new position on the screen along the X-Axis
-			function moveBoxTo(newPositionX) {
+			function moveBoxTo(newPositionX, newPostionY) {
 				box.css("left", newPositionX);
 			}
 
@@ -69,7 +71,6 @@
 var positionX = 10;
 var points = 0;
 var speed =10;
-
 			/* 
 			This Function will be called 20 times/second. Each time it is called,
 			it should move the Box to a new location. If the box drifts off the screen
@@ -86,7 +87,7 @@ var speed =10;
 					speed *= -1
 				}
 			};
-
+		
 			/* 
 			This Function will be called each time the box is clicked. Each time it is called,
 			it should increase the points total, increase the speed, and move the box to
