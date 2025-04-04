@@ -60,7 +60,7 @@ var runLevels = function (window) {
     createEnemy(1200, groundY - 50);
 
     function createReward() {
-
+      
     }
     createReward();
     
