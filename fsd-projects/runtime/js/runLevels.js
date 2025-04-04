@@ -59,8 +59,8 @@ var runLevels = function (window) {
     createEnemy(800, groundY - 100);
     createEnemy(1200, groundY - 50);
 
-    function createReward() {
-      
+    //function createReward() {
+    //  var reward = game.
     }
     createReward();
     
@@ -79,7 +79,7 @@ var runLevels = function (window) {
     }
     startLevel();
   };
-};
+
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 if (
