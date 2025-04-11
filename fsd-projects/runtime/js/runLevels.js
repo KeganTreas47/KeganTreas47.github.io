@@ -59,14 +59,52 @@ var runLevels = function (window) {
     createEnemy(800, groundY - 100);
     createEnemy(1200, groundY - 50);
 
-    //function createReward() {
-    //  var reward = game.
+    function createReward(x, y) {
+      var reward = game.createGameItem("reward", 15);
+      var yellowCircle = draw.circle(15, "yellow");
+      yellowCircle.x = 0
+      yellowCircle.y = 0
+      reward.addChild(yellowCircle);
+      reward.x = x;
+      reward.y = y;
+      game.addGameItem(reward);
+      reward.velocityX = -1;
+      
+      
+
+      reward.onPlayerCollision = function(){
+        game.changeIntegrity(10);
+        reward.fadeOut();
+      }
     }
-    createReward();
+    createReward(1650, groundY-90);
     
+    function createMarker(x, y) {
+      var marker = game.createGameItem("marker", 70);
+      var greenCircle = draw.circle(70, "#4efc03");
+      greenCircle.x = 0
+      greenCircle.x = 0
+      marker.addChild(greenCircle);
+      marker.x = x;
+      marker.y = y;
+      game.addGameItem(marker);
+      marker.velocityX = -1;
+
+      marker.onPlayerCollision = function(){
+        startLevel();
+      }
+      marker.onProjectileCollision = function(){
+        startLevel();
+      }
+    }
+    createMarker(2000, groundY-80);
+    
+
+
     function startLevel() {
       // TODO 13 goes below here
-
+      var level = levelData[currentLevel];
+      var levelObjects 
         
       //////////////////////////////////////////////
       // DO NOT EDIT CODE BELOW HERE
@@ -79,7 +117,7 @@ var runLevels = function (window) {
     }
     startLevel();
   };
-
+};
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 if (
@@ -88,4 +126,4 @@ if (
 ) {
   // here, export any references you need for tests //
   module.exports = runLevels;
-}
+};
